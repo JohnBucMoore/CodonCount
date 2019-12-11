@@ -56,6 +56,13 @@ public class WordsInFiles {
         return words;
     }
 
+    public void printFilesIn(String word) {
+        System.out.println(word+" appears in these files:");
+        for (int i = 0; i < wordMap.get(word).size(); i++) {
+            System.out.println(wordMap.get(word).get(i));
+        }
+    }
+
     public void test(){
         buildWordFileMap();
         for (String key : wordMap.keySet()) {
@@ -63,6 +70,11 @@ public class WordsInFiles {
         }
         System.out.println("The most common word occurs in "+maxNumber()+" files");
         System.out.println("Words that occur "+maxNumber()+" times are: "+wordsInNumFiles(maxNumber()));
+        int num = 2;
+        String s = "Words that occur "+num+" times are: "+wordsInNumFiles(num);
+        System.out.println(s);
+        printFilesIn("cats");
+        printFilesIn("dogs");
     }
 
     public static void main(String[] args) {
