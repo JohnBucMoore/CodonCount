@@ -36,10 +36,22 @@ public class WordsInFiles {
         }
     }
 
+    public int maxNumber() {
+        int max = 0;
+        for (String key : wordMap.keySet()) {
+            if (wordMap.get(key).size() > max) {
+                max = wordMap.get(key).size();
+            }
+        }
+        return max;
+    }
+
     public void test(){
+        buildWordFileMap();
         for (String key : wordMap.keySet()) {
             System.out.println(key+" appears in: "+wordMap.get(key));
         }
+        System.out.println("The most common word occurs in "+maxNumber()+" files");
     }
 
     public static void main(String[] args) {
