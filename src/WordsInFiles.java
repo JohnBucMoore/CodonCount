@@ -28,11 +28,15 @@ public class WordsInFiles {
         }
     }
 
-    public void test(){
+    public void buildWordFileMap() {
+        wordMap.clear();
         DirectoryResource dr = new DirectoryResource();
         for (File f : dr.selectedFiles()) {
             addWordsFromFile(f);
         }
+    }
+
+    public void test(){
         for (String key : wordMap.keySet()) {
             System.out.println(key+" appears in: "+wordMap.get(key));
         }
