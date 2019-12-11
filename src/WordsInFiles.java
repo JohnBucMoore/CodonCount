@@ -46,12 +46,23 @@ public class WordsInFiles {
         return max;
     }
 
+    public ArrayList<String> wordsInNumFiles(int number) {
+        ArrayList<String> words = new ArrayList<>();
+        for (String word : wordMap.keySet()) {
+            if (wordMap.get(word).size() == number) {
+                words.add(word);
+            }
+        }
+        return words;
+    }
+
     public void test(){
         buildWordFileMap();
         for (String key : wordMap.keySet()) {
             System.out.println(key+" appears in: "+wordMap.get(key));
         }
         System.out.println("The most common word occurs in "+maxNumber()+" files");
+        System.out.println("Words that occur "+maxNumber()+" times are: "+wordsInNumFiles(maxNumber()));
     }
 
     public static void main(String[] args) {
